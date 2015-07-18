@@ -10,7 +10,7 @@
 namespace PLWebcinemagic {
     
     
-    public partial class _Default {
+    public partial class Booked {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,21 @@ namespace PLWebcinemagic {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnLogin control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// btnSignup control.
+        /// lblReservationNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignup;
+        protected global::System.Web.UI.WebControls.Label lblReservationNumber;
     }
 }

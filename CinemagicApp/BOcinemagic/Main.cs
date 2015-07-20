@@ -16,7 +16,7 @@ using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace BOKunden {
+namespace BOcinemagic {
     // Die Klasse Main ist das Starterobjekt dieses Businessobjekts
     // Sie ist statisch, d.h. der Programmierer des PL muss kein Objekt erzeugen, sondern kann die Methoden
     // der Klasse direkt aufrufen, z.B. x = BOKunden.getKundenListe()
@@ -37,7 +37,7 @@ namespace BOKunden {
             //Variante 2: wie oben, aber der Pfad wird aus dem absoluten App-Pfad und der relativen Position des DB-Files berechnet.
                 List<string> dirs = new List<string>(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).Split('\\'));
                 dirs.RemoveAt(dirs.Count - 1); //letztes Verzeichnis entfernen
-                string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + String.Join(@"\", dirs) + @"\DB\KundenDB4.mdf;Integrated Security=True;Connect Timeout=5";
+                string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + String.Join(@"\", dirs) + @"\BOcinemagic\Database\CinemagicDB.mdf;Integrated Security=True;Connect Timeout=5";
 
             //Variante 3: DBFile mit SQL Server Manager Express im SQL-Server registrieren und den "Kurznamen aus dem SQL Manager angeben
             //Vorteil: nur ein logischer Name - Name und Pfad der DB kann verändert werden (SQL Manager)
@@ -52,25 +52,28 @@ namespace BOKunden {
             return con;
         }
 
-        ////Methode ladet ale Kunden aus der BD, verpackt diese in Kundenobjekte und liefert sie als Kundenliste zurück.
-        //public static Kunden getKunden() {
+        //Methode ladet ale Kunden aus der BD, verpackt diese in Kundenobjekte und liefert sie als Kundenliste zurück.
+        //public static User getKunden()
+        //{
         //    return Kunde.LoadAll();
         //}
 
         ////Methode ladet einen Kundenrecord direkt aus der DB, speichert Werte in
         ////BOKunde-Objekt und gibt initialisiertes Objekt zurück.
-        //public static Kunde getKunde(string KundenID) {
-        //    return Kunde.Load(KundenID);
+        //public static Kunde getKunde(string KundenID)
+        //{
+        //    return User.Load(KundenID);
         //}
 
         ////gibt ein neues leeres Kundenobjekt zum SPeichern neuer Kunden zurück
-        //public static Kunde newKunde() {
+        //public static User newKunde()
+        //{
         //    // ok, das erscheint jetzt eher komisch, hat aber den Vorteil, dass,
         //    // ich diese Methode im BL später noch erweitern kan ohne im PL
         //    // was zu ändern (zB Vorinitialisierung, oder ähnliches)
         //    // das gelcihe könnte ich in diesem Fall auch mit einem Konstruktor in
         //    // der Klasse BOKunde erreichen.
-        //    return new Kunde();
+        //    return new User();
         //}
     }
 

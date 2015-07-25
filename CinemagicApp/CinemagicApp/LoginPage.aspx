@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PLWebcinemagic.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="PLWebcinemagic.LoginPage" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +12,7 @@
         PLEASE LOG IN:<br />
 
          USERNAME:  <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="reqUsername" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please enter your username." ></asp:RequiredFieldValidator><br />
-        PASSWORD:  <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="ReqPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter your password." ></asp:RequiredFieldValidator><br />
+        PASSWORD:  <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="ReqPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter your password." ></asp:RequiredFieldValidator><br />
          
 
         <br />

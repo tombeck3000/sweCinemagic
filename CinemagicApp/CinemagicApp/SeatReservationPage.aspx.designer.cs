@@ -10,7 +10,7 @@
 namespace PLWebcinemagic {
     
     
-    public partial class Register {
+    public partial class SeatReservationPage {
         
         /// <summary>
         /// form1 control.
@@ -22,129 +22,102 @@ namespace PLWebcinemagic {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtUsername control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// reqUsername control.
+        /// MovieTitel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqUsername;
+        protected global::System.Web.UI.WebControls.Label MovieTitel;
         
         /// <summary>
-        /// txtFirstName control.
+        /// MovieTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.Label MovieTime;
         
         /// <summary>
-        /// reqFirstName control.
+        /// ddlRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFirstName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRow;
         
         /// <summary>
-        /// txtLastName control.
+        /// Row control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.Label Row;
         
         /// <summary>
-        /// reqLastNAme control.
+        /// ddlSeat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLastNAme;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSeat;
         
         /// <summary>
-        /// txtEmail control.
+        /// Seat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Label Seat;
         
         /// <summary>
-        /// reqEmail control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqEmail;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// txtPassword control.
+        /// lblChoosenSeat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Label lblChoosenSeat;
         
         /// <summary>
-        /// ReqPassword control.
+        /// btnDrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPassword;
+        protected global::System.Web.UI.WebControls.Button btnDrop;
         
         /// <summary>
-        /// txtPassword2 control.
+        /// btnBook control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword2;
-        
-        /// <summary>
-        /// CompareValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// btnRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
+        protected global::System.Web.UI.WebControls.Button btnBook;
     }
 }

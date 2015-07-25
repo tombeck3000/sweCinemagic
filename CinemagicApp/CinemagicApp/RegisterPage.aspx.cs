@@ -8,7 +8,7 @@ using BOcinemagic;
 
 namespace PLWebcinemagic
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class RegisterPage : System.Web.UI.Page
     {
         User currentUser;
 
@@ -18,14 +18,15 @@ namespace PLWebcinemagic
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            Session["currentUserName"] = currentUser.UserName = txtUsername.Text;
             currentUser.FirstName = txtFirstName.Text;
             currentUser.LastName = txtLastName.Text;
             currentUser.EMail = txtEmail.Text;
             currentUser.Password = txtPassword.Text;
-
-            if (currentUser.Save() == true)
+            
+            if (currentUser.SignUpRegistration() == true)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("LoginPage.aspx");
             }
             
         }

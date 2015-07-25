@@ -10,7 +10,7 @@
 namespace PLWebcinemagic {
     
     
-    public partial class Login {
+    public partial class LoginPage {
         
         /// <summary>
         /// form1 control.

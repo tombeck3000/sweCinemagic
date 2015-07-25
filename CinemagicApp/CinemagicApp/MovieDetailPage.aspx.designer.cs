@@ -10,7 +10,7 @@
 namespace PLWebcinemagic {
     
     
-    public partial class MovieDetail {
+    public partial class MovieDetailPage {
         
         /// <summary>
         /// form1 control.
@@ -31,31 +31,94 @@ namespace PLWebcinemagic {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// Label1 control.
+        /// lblTitleValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblTitleValue;
         
         /// <summary>
-        /// Image1 control.
+        /// picture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image picture;
         
         /// <summary>
-        /// Label2 control.
+        /// lblDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblDescription;
+        
+        /// <summary>
+        /// lblDescriptionValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescriptionValue;
+        
+        /// <summary>
+        /// lblLength control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLength;
+        
+        /// <summary>
+        /// lblLengthValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLengthValue;
+        
+        /// <summary>
+        /// lblFsk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFsk;
+        
+        /// <summary>
+        /// lblFskValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFskValue;
+        
+        /// <summary>
+        /// lblGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGenre;
+        
+        /// <summary>
+        /// lblGenreValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGenreValue;
         
         /// <summary>
         /// Button1 control.

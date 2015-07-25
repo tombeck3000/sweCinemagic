@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PLWebcinemagic
 {
-    public partial class SeatReservation : System.Web.UI.Page
+    public partial class BookedPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,12 +16,7 @@ namespace PLWebcinemagic
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
-        }
-
-        protected void btnBook_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Booked.aspx");
+            Response.Redirect("DefaultPage.aspx");
         }
     }
 }

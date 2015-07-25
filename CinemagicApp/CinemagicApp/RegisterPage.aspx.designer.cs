@@ -10,7 +10,7 @@
 namespace PLWebcinemagic {
     
     
-    public partial class SeatReservation {
+    public partial class RegisterPage {
         
         /// <summary>
         /// form1 control.
@@ -22,102 +22,129 @@ namespace PLWebcinemagic {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnLogout control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
-        /// MovieTitel control.
+        /// reqUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MovieTitel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqUsername;
         
         /// <summary>
-        /// MovieTime control.
+        /// txtFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MovieTime;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
         
         /// <summary>
-        /// ddlRow control.
+        /// reqFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRow;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFirstName;
         
         /// <summary>
-        /// Row control.
+        /// txtLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Row;
+        protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// ddlSeat control.
+        /// reqLastNAme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSeat;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLastNAme;
         
         /// <summary>
-        /// Seat control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Seat;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// btnAdd control.
+        /// reqEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqEmail;
         
         /// <summary>
-        /// lblChoosenSeat control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChoosenSeat;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// btnDrop control.
+        /// ReqPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDrop;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPassword;
         
         /// <summary>
-        /// btnBook control.
+        /// txtPassword2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBook;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword2;
+        
+        /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// btnRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

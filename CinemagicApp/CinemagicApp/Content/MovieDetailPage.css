@@ -1,0 +1,28 @@
+﻿#lblDescription, #lblLength, #lblFsk, #lblGenre, #lblNextShows {
+    font-size: large;
+    margin-bottom: 30px;
+    line-height: 2;
+}
+
+#lblTitleValue, #lblNextShows {
+    font-size: xx-large;
+}
+
+#lblTitleValue {
+    padding-left: 10px;
+}
+
+#table {
+    padding-top: 20px
+}
+
+.textColumn {
+    padding-left: 20px;
+    width: 600px;
+    vertical-align: top;
+}
+
+.bigButton {
+    width: 150px;
+    height: 30px;
+}

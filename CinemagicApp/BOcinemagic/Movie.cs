@@ -65,7 +65,10 @@ namespace BOcinemagic
         public Movies GetAllMovies()
         { 
             Movies movies = new Movies();
-            string sql = "select m.MovieID, m.Title, m.Length, m.FSK, m.Description, m.PictureUrl, g.Name as Genre from [Movie] as m left join [Genre] as g on m.GenreID = g.GenreID";
+            string sql = "select m.MovieID, m.Title, m.Length, m.FSK, m.Description, m.PictureUrl, g.GenreID, g.Name as Genre" +
+                         " from [Movie] as m" +
+                         " left join [Genre] as g" +
+                         " on m.GenreID = g.GenreID";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
             cmd.Connection = Main.GetConnection();
@@ -84,17 +87,21 @@ namespace BOcinemagic
         public Movie GetMovie(int movieId)
         {
             Movie retMovie = new Movie();
-            string sql = "select * from [Movie] where MovieID = @movieId";
+            string sql = "select m.MovieID, m.Title, m.Length, m.FSK, m.Description, m.PictureUrl, g.GenreID, g.Name as Genre" +
+                         " from [Movie] as m" +
+                         " left join [Genre] as g" +
+                         " on m.GenreID = g.GenreID" +
+                         " where MovieID = @movieId";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
             cmd.Connection = Main.GetConnection();
             cmd.Parameters.Add(new SqlParameter("@movieId", movieId));
-            
-            using (var reader = cmd.ExecuteReader())
+
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
             {
-                reader.Read();
                 retMovie = Create(reader);
-                reader.Close();
             }
             
             return retMovie;
@@ -110,7 +117,8 @@ namespace BOcinemagic
                 Fsk = Convert.ToInt32(record["FSK"].ToString()),
                 Description = record["Description"].ToString(),
                 PictureUrl = record["PictureUrl"].ToString(),
-                GenreId = Convert.ToInt32(record["GenreId"].ToString())
+                GenreId = Convert.ToInt32(record["GenreID"].ToString()),
+                Genre = record["Genre"].ToString()
             };  
         }
     }

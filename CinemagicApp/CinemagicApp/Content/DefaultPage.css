@@ -1,0 +1,18 @@
+﻿#welcomeText {
+    font-size: large;
+}
+
+#buttonArea {
+    padding-top: 20px;
+}
+
+#btnLogin {
+    width: 70px;
+    height: 30px;
+}
+
+#btnSignup {
+    margin-left: 20px;
+    width: 80px;
+    height: 30px;
+}

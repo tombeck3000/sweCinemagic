@@ -1,0 +1,49 @@
+﻿body {
+    background-color: #19193E;
+    font-family: Verdana;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#logo {
+    position: absolute;
+    right: 300px;
+    width: 300px;
+    z-index: 10;
+}
+
+#btnLogout {
+    margin-left: 300px;
+    margin-top: 150px;
+    width: 70px;
+    height: 30px;
+}
+
+#header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 200px;
+    background-color: #000029;
+    color: whitesmoke;
+}
+#content {
+    position: absolute;
+    top: 200px;
+    background-color: #19193E;
+    color: whitesmoke;
+    text-align: left;
+    padding-top: 100px;
+    padding-left: 300px;
+    padding-bottom: 100px;
+}
+#footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #000029;
+    color: whitesmoke;
+    text-align: center;
+    padding: 5px;
+    clear: both;
+}

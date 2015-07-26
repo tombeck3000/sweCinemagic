@@ -19,7 +19,6 @@ namespace PLWebcinemagic
         protected void Page_Load(object sender, EventArgs e)
         {
             Movie m = new Movie();
-            Movie xxx = m.GetMovie(4);
             Session["allMovies"] = m.GetAllMovies();
         }
 

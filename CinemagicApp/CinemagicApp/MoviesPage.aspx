@@ -5,22 +5,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Movies</title>
+    <link rel="stylesheet" href="Content/MoviesPage.css" />
+    <link rel="stylesheet" href="Content/Layout.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="Images/cinemagiclogo.png" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div id="header">
             <asp:Button ID="btnLogout" runat="server" Text="LOGOUT" OnClick="btnLogout_Click"></asp:Button>
+            <asp:Image ID="logo" ImageUrl="Images/cinemagiclogo.png" runat="server"/>
         </div>
-        <div>
-            <h1>CHOOSE YOUR MOVIE:</h1>
+       
+        <div id="content">
+            <div id="headText">PLEASE CHOOSE YOUR MOVIE:</div>
             <asp:DataList ID="DlMovies" runat="server" RepeatColumns="2" RepeatDirection="Horizontal">
                 <ItemTemplate>
-                    <asp:ImageButton ID="ibtnPicture" runat="server" ImageUrl='<%# Eval("PictureUrl")%>' OnClick="ibtnPicture_Click" CommandArgument='<%# Eval("MovieId") + "," + Eval("Title")%>' Width="200px"></asp:ImageButton>
+                    <asp:ImageButton ID="ibtnPicture" runat="server" ImageUrl='<%# Eval("PictureUrl")%>' OnClick="ibtnPicture_Click" CommandArgument='<%# Eval("MovieId") + "," + Eval("Title")%>' Width="200px" Height="300px"></asp:ImageButton>
                     <br />
                     <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title")%>'></asp:Label>
                 </ItemTemplate>
             </asp:DataList>
-       </div>
+        </div>
+        <div id="footer">
+            Copyright © Sabine Hubner | Martin Gugler | Junxiang Qiu
+        </div>
         
     </form>
 </body>

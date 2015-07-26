@@ -125,13 +125,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Manage.aspx" />
-    <Content Include="Account\OpenAuthProviders.ascx" />
-    <Content Include="Account\Register.aspx" />
-    <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="BookedPage.aspx" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\DefaultPage.css" />
+    <Content Include="Content\Layout.css" />
+    <Content Include="Content\MovieDetailPage.css" />
+    <Content Include="Content\MoviesPage.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -189,19 +187,21 @@
     <Content Include="DefaultPage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\alvinandthechipmonks.jpg" />
-    <Content Include="Images\americansniper.jpg" />
-    <Content Include="Images\cars2.jpg" />
-    <Content Include="Images\dasschweigenderlaemmer.jpg" />
-    <Content Include="Images\forrestgump.jpg" />
-    <Content Include="Images\her.jpg" />
-    <Content Include="Images\inception.jpg" />
-    <Content Include="Images\jurassicworld.jpg" />
-    <Content Include="Images\matrix.jpg" />
-    <Content Include="Images\meetmeinmontenegro.jpg" />
-    <Content Include="Images\minions.jpg" />
-    <Content Include="Images\terminator3.jpg" />
+    <Content Include="Images\Movies\alvinandthechipmonks.jpg" />
+    <Content Include="Images\Movies\americansniper.jpg" />
+    <Content Include="Images\Movies\cars2.jpg" />
+    <Content Include="Images\cinemagiclogo.png" />
+    <Content Include="Images\Movies\dasschweigenderlaemmer.jpg" />
+    <Content Include="Images\Movies\forrestgump.jpg" />
+    <Content Include="Images\Movies\her.jpg" />
+    <Content Include="Images\Movies\inception.jpg" />
+    <Content Include="Images\Movies\jurassicworld.jpg" />
+    <Content Include="Images\Movies\matrix.jpg" />
+    <Content Include="Images\Movies\meetmeinmontenegro.jpg" />
+    <Content Include="Images\Movies\minions.jpg" />
+    <Content Include="Images\Movies\terminator3.jpg" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="Content\LoginPage.css" />
     <Content Include="MovieDetailPage.aspx" />
     <Content Include="MoviesPage.aspx" />
     <Content Include="packages.config" />
@@ -251,41 +251,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Manage.aspx.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Manage.aspx.designer.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\OpenAuthProviders.ascx.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BookedPage.aspx.cs">
       <DependentUpon>BookedPage.aspx</DependentUpon>
@@ -366,7 +331,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>

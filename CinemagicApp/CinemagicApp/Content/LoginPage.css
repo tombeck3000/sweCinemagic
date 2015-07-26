@@ -1,0 +1,25 @@
+﻿table {
+    font-size: large;
+}
+
+tr.row2 {
+    padding-bottom: 2px;
+}
+
+tr.row3 {
+    padding-top: 2px;
+}
+
+td.column2 {
+    text-align: right;    
+}
+
+td {
+    text-align: left;
+    padding-top: 10px;
+}
+
+#btnLogin {
+    width: 70px;
+    height: 30px;
+}

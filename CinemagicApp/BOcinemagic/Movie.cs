@@ -18,6 +18,9 @@ namespace BOcinemagic
         private string pictureUrl;
         private int genreId;
         private string genre;
+        private int movieScreeningId;
+        private DateTime date;
+        private DateTime time;
         
 
         public int MovieId
@@ -60,11 +63,26 @@ namespace BOcinemagic
             get { return genre; }
             set { genre = value;}
         }
+        public int MovieScreeningId
+        {
+            get { return movieScreeningId; }
+            set { movieScreeningId = value; }
+        }
+        public DateTime Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
+        public DateTime Time
+        {
+            get { return time; }
+            set { time = value; }
+        }
         public Movie() { }
         
-        public Movies GetAllMovies()
+        public static List<Movie> GetAllMovies()
         { 
-            Movies movies = new Movies();
+            List<Movie> movies = new List<Movie>();
             string sql = "select m.MovieID, m.Title, m.Length, m.FSK, m.Description, m.PictureUrl, g.GenreID, g.Name as Genre" +
                          " from [Movie] as m" +
                          " left join [Genre] as g" +
@@ -76,17 +94,37 @@ namespace BOcinemagic
             {
                 while (reader.Read())
                 {
-                    movies.Add(Create(reader));
-                   
+                    movies.Add(CreateMovie(reader));
                 }
             }
             return movies;
         }
-              
+
+        public static List<Movie> GetAllMoviesWithScreening()
+        {
+            List<Movie> movies = new List<Movie>();
+            string sql = "select m.MovieID, ms.MovieScreeningID, m.Title, ms.Date, ms.Time, m.Length, m.FSK, m.Description, m.PictureUrl, g.GenreID, g.Name as Genre " +
+                         "from [Movie] as m " +
+                         "left join [Genre] as g " +
+                         "on m.GenreID = g.GenreID " +
+                         "right join [MovieScreening] as ms " +
+                         "on m.MovieID = ms.MovieID";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = sql;
+            cmd.Connection = Main.GetConnection();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    movies.Add(CreateMovieWithScreening(reader));
+                }
+            }
+            return movies;
+        }
 
         public Movie GetMovie(int movieId)
         {
-            Movie retMovie = new Movie();
+            Movie movie = new Movie();
             string sql = "select m.MovieID, m.Title, m.Length, m.FSK, m.Description, m.PictureUrl, g.GenreID, g.Name as Genre" +
                          " from [Movie] as m" +
                          " left join [Genre] as g" +
@@ -101,13 +139,13 @@ namespace BOcinemagic
 
             while (reader.Read())
             {
-                retMovie = Create(reader);
+                movie = CreateMovie(reader);
             }
             
-            return retMovie;
+            return movie;
         }
         
-        public static Movie Create(IDataRecord record)
+        public static Movie CreateMovie(IDataRecord record)
         {
             return new Movie
             {
@@ -120,6 +158,25 @@ namespace BOcinemagic
                 GenreId = Convert.ToInt32(record["GenreID"].ToString()),
                 Genre = record["Genre"].ToString()
             };  
+        }
+
+        public static Movie CreateMovieWithScreening(IDataRecord record)
+        {
+            return new Movie
+            {
+                MovieId = Convert.ToInt32(record["MovieID"].ToString()),
+                MovieScreeningId = Convert.ToInt32(record["MovieScreeningId"].ToString()),
+                Title = record["Title"].ToString(),
+                Date = Convert.ToDateTime(record["Date"].ToString()),
+                Time = Convert.ToDateTime(record["Time"].ToString()),
+                Length = Convert.ToInt32(record["Length"].ToString()),
+                Fsk = Convert.ToInt32(record["FSK"].ToString()),
+                Description = record["Description"].ToString(),
+                PictureUrl = record["PictureUrl"].ToString(),
+                GenreId = Convert.ToInt32(record["GenreID"].ToString()),
+                Genre = record["Genre"].ToString()
+                
+            };
         }
     }
 }

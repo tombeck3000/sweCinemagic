@@ -6,8 +6,8 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title>Login</title>
-    <link rel="stylesheet" href="Content/LoginPage.css"/>
-    <link rel="stylesheet" href="Content/Layout.css"/>
+    <link rel="stylesheet" href="Styles/LoginPage.css"/>
+    <link rel="stylesheet" href="Styles/Layout.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="Images/cinemagiclogo.png" />
 </head>
 <body>
@@ -18,12 +18,12 @@
         <div id="content">
             <table>
                 <tr class="row1">
-                    <td class="column1">PLEASE LOG IN:</td>
+                    <td class="column1">LOG IN:</td>
                     <td class="column2"></td>
                     <td class="column3"></td>
                 </tr>
                 <tr class="row2">
-                    <td class="column1">USERNAME:</td>
+                    <td class="column1">USERNAME</td>
                     <td class="column2">
                         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
                     </td>
@@ -32,7 +32,7 @@
                     </td>
                 </tr>
                 <tr class="row3">
-                    <td class="column1">PASSWORD:</td>
+                    <td class="column1">PASSWORD</td>
                     <td class="column2">
                         <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
                     </td>

@@ -10,60 +10,41 @@ namespace PLWebcinemagic
 {
     public partial class MovieDetailPage : System.Web.UI.Page
     {
-        private Movies currentMovies;
         private int movieId;
-        private string title;
-        private string pictureUrl;
-        private string description;
-        private int length;
-        private int fsk;
-        private string genre;
-
+        private Movie movie;
+        private List<Movie> movieWithScreenings;
+       
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            currentMovies = (Movies)Session["allMovies"];
             movieId = Convert.ToInt32(Request.QueryString["id"]);
-           
+            List<Movie> allMoviesWithScreening = (List<Movie>)Session["allMoviesWithScreening"];
+            movie = allMoviesWithScreening.FirstOrDefault(m => m.MovieId == movieId);
+            movieWithScreenings = allMoviesWithScreening.Where(m => m.MovieId == movieId).Take(3).ToList();
+
             FillMovieDetails();
             FillScreeningButtons();
         }
 
         private void FillMovieDetails()
         {
-            foreach (Movie movie in currentMovies)
-            {
-                if (movie.MovieId == movieId)
-                {
-                    title = movie.Title;
-                    pictureUrl = movie.PictureUrl;
-                    description = movie.Description;
-                    length = movie.Length;
-                    fsk = movie.Fsk;
-                    genre = movie.Genre;
-                    break;
-                }
-            }
-
-            lblTitleValue.Text = title;
-            picture.ImageUrl = pictureUrl;
-            lblDescriptionValue.Text = description;
-            lblLengthValue.Text = length + " min";
-            lblFskValue.Text = fsk.ToString();
-            lblGenreValue.Text = genre.ToString();
+            lblTitleValue.Text = movie.Title;
+            picture.ImageUrl = movie.PictureUrl;
+            lblDescriptionValue.Text = movie.Description;
+            lblLengthValue.Text = movie.Length + " min";
+            lblFskValue.Text = movie.Fsk.ToString();
+            lblGenreValue.Text = movie.Genre;
         }
 
         private void FillScreeningButtons()
         {
-            MovieScreening currentScreening = new MovieScreening();
-            MovieScreenings ms = currentScreening.GetMovieScreening(movieId);
+            DateTime firstDate = movieWithScreenings[0].Date;
+            DateTime secondDate = movieWithScreenings[1].Date;
+            DateTime thirdDate = movieWithScreenings[2].Date;
 
-            DateTime firstDate = ms[0].Date;
-            DateTime secondDate = ms[1].Date;
-            DateTime thirdDate = ms[2].Date;
-
-            DateTime firstTime = ms[0].Time;
-            DateTime secondTime = ms[1].Time;
-            DateTime thirdTime = ms[2].Time;
+            DateTime firstTime = movieWithScreenings[0].Time;
+            DateTime secondTime = movieWithScreenings[1].Time;
+            DateTime thirdTime = movieWithScreenings[2].Time;
 
 
             btn1.Text = firstDate.Day.ToString().PadLeft(2, '0') + "." + firstDate.Month.ToString().PadLeft(2, '0') + "." + firstDate.Year + ", " + firstTime.Hour.ToString().PadLeft(2, '0') + ":" + firstTime.Minute.ToString().PadLeft(2, '0');
@@ -78,16 +59,19 @@ namespace PLWebcinemagic
 
         protected void btn1_Click(object sender, EventArgs e)
         {
+            Session["chosenScreening"] = movieWithScreenings[0];
             Response.Redirect("SeatReservationPage.aspx");
         }
 
         protected void btn2_Click(object sender, EventArgs e)
         {
+            Session["chosenScreening"] = movieWithScreenings[1];
             Response.Redirect("SeatReservationPage.aspx");
         }
 
         protected void btn3_Click(object sender, EventArgs e)
         {
+            Session["chosenScreening"] = movieWithScreenings[2];
             Response.Redirect("SeatReservationPage.aspx");
         }
     }

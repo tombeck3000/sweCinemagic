@@ -56,10 +56,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Movie.cs" />
-    <Compile Include="Movies.cs" />
-    <Compile Include="MovieScreening.cs" />
-    <Compile Include="MovieScreenings.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seat.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -37,8 +37,8 @@ namespace BOcinemagic {
             //Variante 2: wie oben, aber der Pfad wird aus dem absoluten App-Pfad und der relativen Position des DB-Files berechnet.
                 List<string> dirs = new List<string>(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).Split('\\'));
                 dirs.RemoveAt(dirs.Count - 1); //letztes Verzeichnis entfernen
-                string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + String.Join(@"\", dirs) + @"\BOcinemagic\Database\CinemagicDB.mdf;Integrated Security=True;Connect Timeout=5";
-
+                string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + String.Join(@"\", dirs) + @"\BOcinemagic\Database\CinemagicDB.mdf;Integrated Security=True;Connect Timeout=5";
+            //Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = E:\gitVS\sweCinemagic\CinemagicApp\BOcinemagic\Database\CinemagicDB.mdf; Integrated Security = True; Connect Timeout = 30
             //Variante 3: DBFile mit SQL Server Manager Express im SQL-Server registrieren und den "Kurznamen aus dem SQL Manager angeben
             //Vorteil: nur ein logischer Name - Name und Pfad der DB kann verändert werden (SQL Manager)
             //Nachteil: App kann nicht mit Copy&Paste auf den Zielserver verschoben werden, da DB regstriert werden muss.

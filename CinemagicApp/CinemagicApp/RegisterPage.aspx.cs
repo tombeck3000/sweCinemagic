@@ -18,13 +18,14 @@ namespace PLWebcinemagic
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Session["currentUserName"] = currentUser.UserName = txtUsername.Text;
+            Session["currentUser"] = currentUser;
+            currentUser.UserName = txtUsername.Text;
             currentUser.FirstName = txtFirstName.Text;
             currentUser.LastName = txtLastName.Text;
             currentUser.EMail = txtEmail.Text;
             currentUser.Password = txtPassword.Text;
             
-            if (currentUser.SignUpRegistration() == true)
+            if (currentUser.SignUpRegistration())
             {
                 Response.Redirect("LoginPage.aspx");
             }

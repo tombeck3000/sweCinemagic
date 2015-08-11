@@ -10,18 +10,19 @@ namespace PLWebcinemagic
 {
     public partial class LoginPage : System.Web.UI.Page
     {
-        User loginUser;
-
+        private User loginUser;
+        private User lastRegistratedUser;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             loginUser = new User();
 
             //Get the UserName from the Registration-Page for better usability
-            if (Session["currentUserName"] != null)
+            if (Session["currentUser"] != null)
             {
-                txtUsername.Text = Session["currentUserName"].ToString();
+                lastRegistratedUser = (User)Session["currentUser"];
+                txtUsername.Text = lastRegistratedUser.UserName;
             }
-
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace PLWebcinemagic
             loginUser.UserName = txtUsername.Text;
             loginUser.Password = txtPassword.Text;
 
-            if (loginUser.CheckAuthorization(loginUser.UserName, loginUser.Password) == true)
+            if (loginUser.CheckAuthorization(loginUser.UserName, loginUser.Password))
             {
                 Session["loggedUser"] = loginUser;
                 Response.Redirect("MoviesPage.aspx");

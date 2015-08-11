@@ -31,22 +31,40 @@ namespace PLWebcinemagic {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// MovieTitel control.
+        /// logo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MovieTitel;
+        protected global::System.Web.UI.WebControls.Image logo;
         
         /// <summary>
-        /// MovieTime control.
+        /// lblMovieTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MovieTime;
+        protected global::System.Web.UI.WebControls.Label lblMovieTitle;
+        
+        /// <summary>
+        /// lblMovieTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieTime;
+        
+        /// <summary>
+        /// lblRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRow;
         
         /// <summary>
         /// ddlRow control.
@@ -58,13 +76,13 @@ namespace PLWebcinemagic {
         protected global::System.Web.UI.WebControls.DropDownList ddlRow;
         
         /// <summary>
-        /// Row control.
+        /// lblSeat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Row;
+        protected global::System.Web.UI.WebControls.Label lblSeat;
         
         /// <summary>
         /// ddlSeat control.
@@ -74,15 +92,6 @@ namespace PLWebcinemagic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSeat;
-        
-        /// <summary>
-        /// Seat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Seat;
         
         /// <summary>
         /// btnAdd control.

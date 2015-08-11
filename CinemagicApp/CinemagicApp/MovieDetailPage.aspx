@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>MovieDetail</title>
-    <link rel="stylesheet" href="Content/MovieDetailPage.css"/>
-    <link rel="stylesheet" href="Content/Layout.css"/>
+    <link rel="stylesheet" href="Styles/MovieDetailPage.css"/>
+    <link rel="stylesheet" href="Styles/Layout.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="Images/cinemagiclogo.png" />
 </head>
 <body>

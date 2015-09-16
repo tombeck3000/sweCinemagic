@@ -21,7 +21,7 @@ namespace BOcinemagic
         public string UserId
         {
             get { return userId; } 
-            internal set { userId = value; }
+            set { userId = value; }
         }
         public string UserName
         {
@@ -69,22 +69,35 @@ namespace BOcinemagic
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public bool CheckAuthorization(string userName, string password)
+        public string CheckAuthorization(string userName, string password)
         {
-            bool retVal = false;
-            string sql = "select Password from [User] where UserName = @userName";
+            string retPassword = "";
+            string userId = "";
+            string sql = "select Password, UserID from [User] where UserName = @userName";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
             cmd.Connection = Main.GetConnection();
 
             cmd.Parameters.Add(new SqlParameter("@userName", userName));
-            string retPassword = cmd.ExecuteScalar().ToString();
-            if (retPassword == password)
+
+            using (var reader = cmd.ExecuteReader())
             {
-                retVal = true;
+                while (reader.Read())
+                {
+                    retPassword = reader["Password"].ToString();
+                    userId = reader["UserID"].ToString();
+                }
             }
             
-            return retVal;
+            if (retPassword == password)
+            {
+                return userId;
+            }
+            else
+            {
+                return string.Empty;
+            }
+            
         }
 
         private string HashPassword(string password)

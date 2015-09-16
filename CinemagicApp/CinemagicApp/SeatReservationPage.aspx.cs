@@ -14,23 +14,25 @@ namespace PLWebcinemagic
         private Order newOrder;
         private User loggedUser;
         private string userId;
-        private List<int> seats = new List<int>();
-        private List<OrderDetail> orderDetails = new List<OrderDetail>();  
+        private static List<int[]> _seats;
+       
             
         protected void Page_Load(object sender, EventArgs e)
         {
-             newOrder = new Order();
-
             if (!IsPostBack)
             {
                
+                List<int[]> seats = new List<int[]>();
                 chosenScreening = (Movie) Session["chosenScreening"];
                 loggedUser = (User) Session["loggedUser"];
                 userId = loggedUser.UserId;
+
+                newOrder = new Order(chosenScreening.MovieScreeningId, userId);
+                _seats = new List<int[]>();
                 
                 lblMovieTitle.Text = chosenScreening.Title;
                 lblMovieTime.Text = chosenScreening.Date.Day.ToString().PadLeft(2, '0') + "." + chosenScreening.Date.Month.ToString().PadLeft(2, '0') + "." + chosenScreening.Date.Year + ", " + chosenScreening.Time.Hour.ToString().PadLeft(2, '0') + ":" + chosenScreening.Time.Minute.ToString().PadLeft(2, '0');
-                            
+                    
                 CreateDropDowns();
             }
             
@@ -73,43 +75,56 @@ namespace PLWebcinemagic
 
         protected void btnBook_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BookedPage.aspx");
+            int newOrderId = Order.FinalizeOrder(_seats);
+
+            if (newOrderId != -1)
+            {
+                Response.Redirect("BookedPage.aspx?id=" + newOrderId.ToString() + "");
+            }
+            else
+            {
+                lblBookHint.Text = "Please choose Seat and Row";
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            lblAddError.Text = "";
+
             int row = Convert.ToInt32(ddlRow.SelectedValue);
             int seat = Convert.ToInt32(ddlSeat.SelectedValue);
-
-            ListItem rowItem = ddlRow.SelectedItem;
-            ListItem seatItem = ddlSeat.SelectedItem;
-
-            UpdateChosenSeatLabel(row, seat);
             
-            seats.Add(Order.GetSeatId(row, seat));
+            var combination = new int[] { row, seat };
 
-            AddNewOrderDetail(Order.GetSeatId(row, seat));
-            //AddSeatToOrder(ddlRow.SelectedIndex, ddlSeat.SelectedIndex);
-            //RefreshDropDowns(rowItem, seatItem);
-            //ddlSeat.SelectedIndex = ddlSeat.SelectedIndex + 1;
+            bool contains = false;
+            foreach (var c in _seats)
+            {
+                if (c[0] == row && c[1] == seat)
+                {
+                    contains = true;
+                    break;
+                }
+            }
 
+            if (contains)
+            {
+                lblAddError.Text = "Seat already added";
+            }
+            else
+            {
+                _seats.Add(combination);
+                UpdateChosenSeatLabel(row, seat);
+            }
+                    
         }
 
-        private void AddNewOrderDetail(int seatId)
+        protected void btnDrop_Click(object sender, EventArgs e)
         {
-            OrderDetail od = new OrderDetail();
-            od.OrderId = newOrder.OrderId;
-            od.SeatId = seatId;
-            orderDetails.Add(od);
+            lblAddError.Text = "";
+            lblChoosenSeat.Text = "";
+            _seats = new List<int[]>();
         }
 
-        //private void AddSeatToOrder(int row, int seat)
-        //{
-        //    newOrder.MovieScreeningId = chosenScreening.MovieScreeningId;
-        //    newOrder.UserId = Session["UserId"].ToString();
-        //    int seatId = Order.GetSeatId(row, seat);
-        //    newOrder.SeatId = seatId;
-        //}
 
         private void RefreshDropDowns(ListItem row, ListItem seat)
         {
@@ -143,75 +158,87 @@ namespace PLWebcinemagic
             }
         }
 
-        protected override object SaveViewState()
+        protected void ddlRow_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // create object array for Item count + 1
-            object[] allStates = new object[this.Items.Count + 1];
-
-            // the +1 is to hold the base info
-            object baseState = base.SaveViewState();
-            allStates[0] = baseState;
-
-            Int32 i = 1;
-            // now loop through and save each Style attribute for the List
-            foreach (ListItem li in this.Items)
-            {
-                Int32 j = 0;
-                string[][] attributes = new string[li.Attributes.Count][];
-                foreach (string attribute in li.Attributes.Keys)
-                {
-                    attributes[j++] = new string[] { attribute, li.Attributes[attribute] };
-                }
-                allStates[i++] = attributes;
-            }
-            return allStates;
+            UpdateSeatsDropDown();
         }
 
-        protected override void LoadViewState(object savedState)
+        protected void ddlSeat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (savedState != null)
-            {
-                object[] myState = (object[])savedState;
+            UpdateRowsDropDown();
+        }
 
-                // restore base first
-                if (myState[0] != null)
-                    base.LoadViewState(myState[0]);
-
-                Int32 i = 1;
-                foreach (ListItem li in this.Items)
+        private void UpdateSeatsDropDown()
+        {
+            foreach (int[] seat in _seats) {
+                if (seat[0] == ddlRow.SelectedIndex)
                 {
-                    // loop through and restore each style attribute
-                    foreach (string[] attribute in (string[][])myState[i++])
-                    {
-                        li.Attributes[attribute[0]] = attribute[1];
-                    }
+                    ddlSeat.Items[seat[1]].Attributes.Add("disabled", "disabled");
                 }
+                
             }
         }
+
+        private void UpdateRowsDropDown()
+        {
+            foreach (int[] seat in _seats)
+            {
+                if (seat[1] == ddlSeat.SelectedIndex)
+                {
+                    ddlRow.Items[seat[0]].Attributes.Add("disabled", "disabled");
+                }
+
+            }
+        }
+
+       
+
+
+        //protected override object SaveViewState()
+        //{
+        //    // create object array for Item count + 1
+        //    object[] allStates = new object[this.Items.Count + 1];
+
+        //    // the +1 is to hold the base info
+        //    object baseState = base.SaveViewState();
+        //    allStates[0] = baseState;
+
+        //    Int32 i = 1;
+        //    // now loop through and save each Style attribute for the List
+        //    foreach (ListItem li in this.Items)
+        //    {
+        //        Int32 j = 0;
+        //        string[][] attributes = new string[li.Attributes.Count][];
+        //        foreach (string attribute in li.Attributes.Keys)
+        //        {
+        //            attributes[j++] = new string[] { attribute, li.Attributes[attribute] };
+        //        }
+        //        allStates[i++] = attributes;
+        //    }
+        //    return allStates;
+        //}
+
+        //protected override void LoadViewState(object savedState)
+        //{
+        //    if (savedState != null)
+        //    {
+        //        object[] myState = (object[])savedState;
+
+        //        // restore base first
+        //        if (myState[0] != null)
+        //            base.LoadViewState(myState[0]);
+
+        //        Int32 i = 1;
+        //        foreach (ListItem li in this.Items)
+        //        {
+        //            // loop through and restore each style attribute
+        //            foreach (string[] attribute in (string[][])myState[i++])
+        //            {
+        //                li.Attributes[attribute[0]] = attribute[1];
+        //            }
+        //        }
+        //    }
+        //}
     }
 
-    struct OrderDetail
-    {
-        private string orderDetailId;
-        private string orderId;
-        private int seatId;
-
-        public string OrderDetailId
-        {
-            get { return orderDetailId; }
-            set { orderDetailId = Guid.NewGuid().ToString(); }
-        }
-        public string OrderId
-        {
-            get { return orderId; }
-            set { orderId = value; }
-        }
-        public int SeatId
-        {
-            get { return seatId; }
-            set { seatId = value; }
-        }
-
-
-    }
 }

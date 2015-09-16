@@ -25,21 +25,24 @@
             <br />
             <br />
             <asp:Label ID="lblRow" Text="Row" runat="server"></asp:Label>
-            <asp:DropDownList ID="ddlRow" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ddlRow" runat="server" OnSelectedIndexChanged="ddlRow_SelectedIndexChanged"></asp:DropDownList>
             <br />
             <asp:Label ID="lblSeat" Text="Seat" runat="server"></asp:Label>
-            <asp:DropDownList ID="ddlSeat" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ddlSeat" runat="server" OnSelectedIndexChanged="ddlSeat_SelectedIndexChanged"></asp:DropDownList>
             <br />
             <asp:Button ID="btnAdd" runat="server" Text="ADD" OnClick="btnAdd_Click" />
+            <asp:Label ID="lblAddError" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
             <br />
             <br />
             YOUR CHOOSEN SEAT(S):<br />
             <asp:Label ID="lblChoosenSeat" runat="server"></asp:Label>
             <br />
-            <asp:Button ID="btnDrop" runat="server" Text="DROP" />
+            <asp:Button ID="btnDrop" runat="server" Text="DROP" OnClick="btnDrop_Click" />
             <br />
             <br />
             <asp:Button ID="btnBook" runat="server" OnClick="btnBook_Click" Text="BOOK" />
+            <br />
+            <asp:Label ID="lblBookHint" runat="server"></asp:Label>
         </div>
         <div id="footer">
             Copyright © Sabine Hubner | Martin Gugler | Junxiang Qiu

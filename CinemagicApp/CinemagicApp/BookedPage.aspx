@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Booked</title>
-    <link rel="stylesheet" href="Content/BookedPage.css"/>
-    <link rel="stylesheet" href="Content/Layout.css"/>
+    <link rel="stylesheet" href="Styles/BookedPage.css"/>
+    <link rel="stylesheet" href="Styles/Layout.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="Images/cinemagiclogo.png" />
 </head>
 <body>

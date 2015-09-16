@@ -30,8 +30,10 @@ namespace PLWebcinemagic
             loginUser.UserName = txtUsername.Text;
             loginUser.Password = txtPassword.Text;
 
-            if (loginUser.CheckAuthorization(loginUser.UserName, loginUser.Password))
+            string userId = loginUser.CheckAuthorization(loginUser.UserName, loginUser.Password);
+            if (userId != string.Empty)
             {
+                loginUser.UserId = userId.ToString();
                 Session["loggedUser"] = loginUser;
                 Response.Redirect("MoviesPage.aspx");
             }

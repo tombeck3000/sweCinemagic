@@ -11,7 +11,8 @@ namespace PLWebcinemagic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int newOrderId = Convert.ToInt32(Request.QueryString["id"]);
+            lblReservationNumber.Text = newOrderId.ToString();
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
